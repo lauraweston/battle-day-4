@@ -14,7 +14,8 @@ describe Player do
   end
 
   it 'hit points should reduce by 10HP when attacked' do
-    player_1.receive_damage
-    expect(player_1.hit_points).to eq 50
+    damage = rand(1..10)
+    expect(player_1).to receive(:receive_damage).with(damage).and_return(60 - damage)
+    player_1.receive_damage(damage)
   end
 end

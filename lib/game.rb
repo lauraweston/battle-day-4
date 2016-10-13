@@ -15,13 +15,18 @@ class Game
   end
 
   def attack
-    players.last.receive_damage
+    players.last.receive_damage(damage)
   end
 
   def switch_player
     last = players.shift
     @players.push(last)
     @current_player = players.first
+  end
+
+  private
+  def damage
+    Kernel.rand(1..10)
   end
 
 end
