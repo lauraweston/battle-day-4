@@ -15,6 +15,6 @@ describe Player do
 
   it 'hit points should reduce by 10HP when attacked' do
     player_1.receive_damage
-    expect(player_1.hit_points).to eq 90
+    expect(player_1.hit_points).to eq 50
   end
 end

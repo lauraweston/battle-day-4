@@ -1,6 +1,15 @@
 <h1><%=@game.current_player.name%> vs. <%=@game.players.last.name%></h1>
 <p><%=@game.players.last.name%>: <%=@game.players.last.hit_points%>HP</p>
 <p><%=@game.players.first.name%>: <%=@game.players.first.hit_points%>HP</p>
-<form action='/attack'>
-  <input type="submit" value='Attack'/>
-</form >
+<% if @game.current_player.hit_points <= 0 %>
+
+  <p> <%=@game.current_player.name%> lost the game </p>
+  <form action='/'>
+    <input type="submit" value='New Game'/>
+  </form >
+
+<% else %>
+  <form action='/attack'>
+    <input type="submit" value='Attack'/>
+  </form >
+<% end %>
